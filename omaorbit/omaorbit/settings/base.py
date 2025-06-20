@@ -22,13 +22,7 @@ load_dotenv(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-japuzax)#ao#)*8=p643@dsp7)@#2$d!)orx&@-@475icoywgr'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'reckless.localhost', 'shiftoma.localhost']
+# SECRET_KEY, DEBUG, and ALLOWED_HOSTS are set in environment-specific settings files
 
 # Site framework configuration
 SITE_ID = 1  # Default site ID
@@ -44,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'markdownx',  # For markdown support in blog posts
     'core', 
     'blog',  # Assuming you have a blog app
 ]

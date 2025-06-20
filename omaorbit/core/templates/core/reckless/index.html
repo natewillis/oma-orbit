@@ -26,8 +26,8 @@
   <div class="grid">
     {% for post in posts %}
       <a href="{{ post.get_absolute_url }}" class="post-card">
-        {% if post.featured_image %}
-          <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+        {% if post.cover_image %}
+          <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
         {% endif %}
         <div class="post-info">
           <h2>{{ post.title }}</h2>

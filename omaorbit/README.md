@@ -48,21 +48,7 @@ To add a new site to the system:
 
 1. **Update the site configuration**:
    
-   Edit `core/site_config.py` and add a new entry to the `SITE_CONFIGS` dictionary:
-
-   ```python
-   # Example for a new site with ID 3
-   3: {
-       'name': 'newsite',
-       'template_dir': 'core/newsite',
-       'site_title': 'New Site Title',
-       'tagline': 'New Site Tagline',
-       'site_meta': {
-           'description': 'New site description',
-           'keywords': 'new, site, keywords',
-       },
-   },
-   ```
+   Add site to "Sites" model in django admin.
 
 2. **Update the domain mapping**:
    
@@ -102,7 +88,7 @@ To add a new site to the system:
 The multisite system uses Django's sites framework with custom middleware to dynamically serve different templates and content based on the domain:
 
 1. **DynamicSiteMiddleware**: Sets the current site ID based on the request's domain.
-2. **site_config.py**: Contains configuration for each site, including template directories and site-specific settings.
+2. **django sites framework and site_config module**: Contains configuration for each site, including template directories and site-specific settings.
 3. **context_processors.py**: Makes site-specific data available to all templates.
 4. **views.py**: Renders different templates based on the current site.
 

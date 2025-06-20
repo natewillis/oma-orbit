@@ -1,0 +1,9 @@
+{% extends template_dir|add:"/base.html" %}
+
+{% block content %}
+
+<section class="about markdown-content">
+  {{ about_html|safe }}
+</section>
+
+{% endblock %}

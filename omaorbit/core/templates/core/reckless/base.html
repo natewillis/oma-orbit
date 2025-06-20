@@ -7,18 +7,19 @@
   <title>{% block title %}Reckless Analysis{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'core/reckless/css/base.css' %}">
   <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
   <header class="site-header">
     <div class="header-left">
-      {% if profile_image_url %}
-        <a href="{% url 'home' %}" class="logo">
-          <img src="{{ profile_image_url }}" alt="{{ site_title }}">
-        </a>
-      {% endif %}
+      <a href="{% url 'core:home' %}" class="logo">
+        <img src="/media/nateface.png" alt="reckless">
+        Reckless Analysis
+      </a>
+    </div>
+    <div class="header-right">
       <nav class="main-nav">
-        <a href="#">About</a>
-        <a href="#">Search</a>
+        <a href="{% url 'core:about' %}">About</a>
       </nav>
     </div>
   </header>

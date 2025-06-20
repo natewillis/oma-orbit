@@ -5,11 +5,12 @@ from django.urls import reverse
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from markdownx.models import MarkdownxField
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
-    content = models.TextField(help_text="Markdown content goes here")
+    content = MarkdownxField()
     cover_image = models.ImageField(upload_to='blog_covers/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     sites = models.ManyToManyField(Site)

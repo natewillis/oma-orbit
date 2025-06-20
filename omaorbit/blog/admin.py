@@ -2,9 +2,10 @@ from django.contrib import admin
 from django.contrib.sites.models import Site
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
+from markdownx.admin import MarkdownxModelAdmin
 from .models import BlogPost
 
-class BlogPostAdmin(admin.ModelAdmin):
+class BlogPostAdmin(MarkdownxModelAdmin):
     list_display = ('title', 'created_at', 'get_sites')
     list_filter = ('sites', 'created_at')
     search_fields = ('title', 'content')
