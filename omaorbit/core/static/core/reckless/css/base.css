@@ -1,0 +1,124 @@
+/* color palette – just tweak these ! */
+:root {
+  --bg: #111;               /* page background */
+  --fg: #eee;               /* main text */
+  --muted: #888;            /* dates, secondary text */
+  --accent: #4a90e2;        /* links, highlights */
+  --card-bg: #1b1b1b;       /* if you want non-img cards */
+  --radius: 0.5rem;
+  --gap: 2rem;
+  --font: 'Courier New', monospace;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-header {
+  padding: 1rem var(--gap);
+  display: flex;
+  justify-content: flex-end;
+  background: var(--bg);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: var(--gap);
+}
+
+.main-nav a {
+  margin-left: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.hero {
+  text-align: center;
+  padding: var(--gap) var(--gap) 0;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.category-select {
+  margin: var(--gap) auto;
+}
+
+.category-select select {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--muted);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+.posts-grid {
+  padding: var(--gap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+
+.post-card {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+.post-card img {
+  width: 100%;
+  display: block;
+}
+
+.post-info {
+  padding: 0.75rem;
+}
+
+.post-info h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--fg);
+}
+
+.post-info time {
+  font-size: 0.85rem;
+  color: var(--muted);
+}

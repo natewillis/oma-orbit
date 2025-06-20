@@ -1,0 +1,46 @@
+{% extends template_dir|add:"/base.html" %}
+{% load blog_tags %}
+
+{% block title %}{{ post.title }} — {{ site_title }}{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+  <header>
+    <h1>{{ post.title }}</h1>
+    <time datetime="{{ post.created_at|date:'Y-m-d' }}">
+      {{ post.created_at|date:"F j, Y" }}
+    </time>
+    
+    {% site_selector %}
+    
+    <div class="site-availability">
+      Available on: 
+      {% for site in post.sites.all %}
+        <span class="site-badge {% if site.id == current_site_id %}current-site{% endif %}">
+          {{ site.name }}
+        </span>
+      {% endfor %}
+    </div>
+  </header>
+
+  {% if post.cover_image %}
+    <div class="cover-image">
+      <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
+    </div>
+  {% endif %}
+
+  <div class="markdown-content">
+    {{ post_html|safe }}
+  </div>
+  
+  <footer>
+    <p>This post is available on {{ post.sites.count }} site{{ post.sites.count|pluralize }}.</p>
+    
+    {% if user.is_staff %}
+      <div class="admin-actions">
+        <a href="{% url 'admin:blog_blogpost_change' post.id %}" class="admin-link">Edit in Admin</a>
+      </div>
+    {% endif %}
+  </footer>
+</article>
+{% endblock %}

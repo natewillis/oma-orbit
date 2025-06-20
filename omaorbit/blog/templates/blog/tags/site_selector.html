@@ -1,0 +1,12 @@
+{% if sites.count > 1 %}
+<div class="site-selector">
+    <label for="site-select">View site:</label>
+    <select id="site-select" onchange="window.location.href = this.value">
+        {% for site in sites %}
+            <option value="http://{{ site.domain }}{{ request.path }}" {% if site.id == current_site_id %}selected{% endif %}>
+                {{ site.name }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
+{% endif %}

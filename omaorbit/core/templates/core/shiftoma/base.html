@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}SHIFT OMA{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'core/shiftoma/css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <div class="brand-small">SHIFT OMA</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Patterns</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

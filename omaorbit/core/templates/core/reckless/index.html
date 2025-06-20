@@ -1,0 +1,42 @@
+{% extends "core/reckless/base.html" %}
+
+{% block title %}{{ site_title }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1 class="site-title">{{ site_title }}</h1>
+  {% if tagline %}
+    <p class="tagline">{{ tagline }}</p>
+  {% endif %}
+  {% if categories %}
+  <div class="category-select">
+    <select onchange="if(this.value) window.location.href=this.value">
+      <option value="">{{ "Select Category" }}</option>
+      {% for category in categories %}
+        <option value="{% url 'blog:category' category.slug %}">
+          {{ category.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+</section>
+
+<section class="posts-grid">
+  <div class="grid">
+    {% for post in posts %}
+      <a href="{{ post.get_absolute_url }}" class="post-card">
+        {% if post.featured_image %}
+          <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+        {% endif %}
+        <div class="post-info">
+          <h2>{{ post.title }}</h2>
+          <time datetime="{{ post.published_at|date:'Y-m-d' }}">
+            {{ post.published_at|date:"m/d/Y" }}
+          </time>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
