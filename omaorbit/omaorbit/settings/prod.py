@@ -1,9 +1,6 @@
 import os
 from .base import *
 
-# SECURITY: Use environment variable for secret key in production
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-
 # SECURITY: Disable debug in production
 DEBUG = False
 
