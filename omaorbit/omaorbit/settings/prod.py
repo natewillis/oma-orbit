@@ -9,8 +9,8 @@ DEBUG = False
 
 # Configure allowed hosts for production
 ALLOWED_HOSTS = [
-    os.environ.get('DJANGO_ALLOWED_HOST', 'example.com'),
-    'www.example.com',  # Replace with your actual domain
+    'www.omaorbit.com',
+    'www.recklessanalysis.com',  
 ]
 
 # Security settings
