@@ -35,9 +35,6 @@ USE_X_FORWARDED_HOST = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-# Media files configuration
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
-
 # Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.example.com')
