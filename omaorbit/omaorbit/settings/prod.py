@@ -6,8 +6,10 @@ DEBUG = False
 
 # Configure allowed hosts for production
 ALLOWED_HOSTS = [
-    'www.omaorbit.com',
-    'www.recklessanalysis.com',  
+    'www.shiftoma.com',
+    'www.recklessanalysis.com',
+    'shiftoma.com',
+    'recklessanalysis.com',
 ]
 
 # Security settings
@@ -20,6 +22,11 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+
+# CLOUDFLARE settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+
 
 # Static files configuration
 STATIC_ROOT = BASE_DIR / 'staticfiles'
