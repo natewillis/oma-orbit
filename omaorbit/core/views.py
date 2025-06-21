@@ -35,7 +35,6 @@ def about(request):
     current_site = get_current_site(request)
 
     # Get the about page content for the current site
-    print(current_site.config.about)
     about_html = markdown.markdown(current_site.config.about, extensions=["fenced_code", "codehilite", "tables"])
     
     
