@@ -2,7 +2,10 @@ import os
 from .base import *
 
 # SECURITY: Disable debug in production
-DEBUG = False
+DEBUG = True 
+
+# Site framework configuration
+SITE_ID = 2  # Default site ID
 
 # Configure allowed hosts for production
 ALLOWED_HOSTS = [
