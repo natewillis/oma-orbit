@@ -2,7 +2,7 @@ import os
 from .base import *
 
 # SECURITY: Disable debug in production
-DEBUG = True 
+DEBUG = False 
 
 # Site framework configuration
 SITE_ID = 2  # Default site ID
@@ -48,11 +48,24 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'webmaster@example.com
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filename': BASE_DIR / 'logs' / 'django-errors.log',
+            'formatter': 'verbose',
+        },
+        'middleware_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'middleware.log',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
@@ -60,6 +73,11 @@ LOGGING = {
             'handlers': ['file'],
             'level': 'ERROR',
             'propagate': True,
+        },
+        'core.middleware': {
+            'handlers': ['middleware_file'],
+            'level': 'INFO',
+            'propagate': False,
         },
     },
 }
